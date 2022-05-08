@@ -18,6 +18,15 @@ void print_info(const std::vector<std::vector<double>>& matr, const std::vector<
     }
 }
 
+TEST(CGmethod, size25) {
+    std::size_t size = 25;
+    auto b = generateVector(size);
+    auto matr = generateMatrix(size);
+    auto x = solve(matr, b);
+    print_info(matr, x, b);
+    ASSERT_TRUE(checkSolution(matr, x, b));
+}
+
 TEST(CGmethod, size50) {
     std::size_t size = 50;
     auto b = generateVector(size);
@@ -45,17 +54,8 @@ TEST(CGmethod, size150) {
     ASSERT_TRUE(checkSolution(matr, x, b));
 }
 
-TEST(CGmethod, size250) {
-    std::size_t size = 250;
-    auto b = generateVector(size);
-    auto matr = generateMatrix(size);
-    auto x = solve(matr, b);
-    print_info(matr, x, b);
-    ASSERT_TRUE(checkSolution(matr, x, b));
-}
-
-TEST(CGmethod, size500) {
-    std::size_t size = 500;
+TEST(CGmethod, size200) {
+    std::size_t size = 200;
     auto b = generateVector(size);
     auto matr = generateMatrix(size);
     auto x = solve(matr, b);
